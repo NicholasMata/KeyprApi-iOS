@@ -39,7 +39,7 @@ github "MataDesigns/KeyprApi-iOS"
 - ✅ Get Reservations for user
 - ✅ Check-in/out of a reservation
 - ✅ Lookup Reservation by Id
-- 🚫 Lookup Reservation by confirmation code and last name
+- 🔜 Lookup Reservation by confirmation code and last name
 
 ## Usage
 
