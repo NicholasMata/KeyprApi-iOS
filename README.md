@@ -147,4 +147,4 @@ Nicholas Mata, nicholas@matadesigns.net
 
 ## License
 
-KeyprApi is available under the MIT license. See the LICENSE file for more info.
+KeyprApi is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
