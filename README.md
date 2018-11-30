@@ -10,6 +10,7 @@ KeyprApi is wrapper for Keypr endpoints.
 - [Features](#features)
 - [Usage](#usage)
     - **Intro Federated -** [Understanding JWT](#understanding-jwt), [Getting Started](#getting-started),[Checking In/Out of Reservation](#checking-inout-of-reservation)
+- [Documentation](https://matadesigns.github.io/KeyprApi-iOS)
 
 ## Requirements
 - iOS 9.0+
@@ -137,8 +138,7 @@ api.check(taskId: taskId) { (task, error) in
 ```
 
 
-## More Documentation to come ... 
-
+## More examples to come ... 
 (Look at tests for now)
 
 ## Author
