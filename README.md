@@ -1,11 +1,11 @@
-# KeyprApi
+# KeyprApi - (Unoffical)
 
 [![CI Status](https://travis-ci.com/MataDesigns/KeyprApi-iOS.svg)](https://travis-ci.org/MataDesigns/KeyprApi)
 [![Version](https://img.shields.io/cocoapods/v/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
 [![License](https://img.shields.io/cocoapods/l/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
 [![Platform](https://img.shields.io/cocoapods/p/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
 
-KeyprApi is wrapper for Keypr endpoints. **Unoffical**
+KeyprApi is wrapper for Keypr endpoints.
 
 - [Features](#features)
 - [Usage](#usage)
