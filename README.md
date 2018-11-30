@@ -1,4 +1,4 @@
-# KeyprApi - (Unoffical)
+# KeyprApi - (Unofficial)
 
 [![CI Status](https://travis-ci.com/MataDesigns/KeyprApi-iOS.svg)](https://travis-ci.org/MataDesigns/KeyprApi)
 [![Version](https://img.shields.io/cocoapods/v/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
