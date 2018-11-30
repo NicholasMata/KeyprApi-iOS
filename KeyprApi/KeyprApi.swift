@@ -72,7 +72,7 @@ open class KeyprApi {
     
     private var jsonEncoder = JSONEncoder()
     
-    convenience init(jwtGenerator: @escaping KeyprJWTGenerator, environment: KeyprEnv = .production) {
+    public convenience init(jwtGenerator: @escaping KeyprJWTGenerator, environment: KeyprEnv = .production) {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = TimeInterval(30)
         config.timeoutIntervalForResource = TimeInterval(30)
