@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A143FA8521B058B00090D2F8 /* PagedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143FA8421B058B00090D2F8 /* PagedResponse.swift */; };
+		A143FA8721B05BC50090D2F8 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143FA8621B05BC50090D2F8 /* Reservation.swift */; };
+		A143FA8921B097880090D2F8 /* ReservationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143FA8821B097880090D2F8 /* ReservationTask.swift */; };
+		A171FA3621AF032B0055BAE1 /* OAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171FA3521AF032B0055BAE1 /* OAuthResponse.swift */; };
+		A171FA3821AF0A960055BAE1 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171FA3721AF0A960055BAE1 /* ErrorResponse.swift */; };
+		A171FA3B21AF16010055BAE1 /* WebToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171FA3A21AF16010055BAE1 /* WebToken.swift */; };
+		A171FA3D21AF19A80055BAE1 /* WebTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171FA3C21AF19A80055BAE1 /* WebTokenTests.swift */; };
+		A171FA3F21AF2AF80055BAE1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171FA3E21AF2AF80055BAE1 /* StringExtensions.swift */; };
 		A1891D2B21AE4B4E00BD7803 /* KeyprApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1891D2121AE4B4E00BD7803 /* KeyprApi.framework */; };
 		A1891D3021AE4B4E00BD7803 /* KeyprApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */; };
 		A1891D3221AE4B4E00BD7803 /* KeyprApi.h in Headers */ = {isa = PBXBuildFile; fileRef = A1891D2421AE4B4E00BD7803 /* KeyprApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1891D3C21AE4EEF00BD7803 /* KeyprApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +32,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A143FA8421B058B00090D2F8 /* PagedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedResponse.swift; sourceTree = "<group>"; };
+		A143FA8621B05BC50090D2F8 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		A143FA8821B097880090D2F8 /* ReservationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTask.swift; sourceTree = "<group>"; };
+		A171FA3521AF032B0055BAE1 /* OAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthResponse.swift; sourceTree = "<group>"; };
+		A171FA3721AF0A960055BAE1 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		A171FA3A21AF16010055BAE1 /* WebToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToken.swift; sourceTree = "<group>"; };
+		A171FA3C21AF19A80055BAE1 /* WebTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTokenTests.swift; sourceTree = "<group>"; };
+		A171FA3E21AF2AF80055BAE1 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		A1891D2121AE4B4E00BD7803 /* KeyprApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeyprApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1891D2421AE4B4E00BD7803 /* KeyprApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyprApi.h; sourceTree = "<group>"; };
 		A1891D2521AE4B4E00BD7803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1891D2A21AE4B4E00BD7803 /* KeyprApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyprApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApiTests.swift; sourceTree = "<group>"; };
 		A1891D3121AE4B4E00BD7803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +68,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A171FA3421AF030D0055BAE1 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				A171FA3521AF032B0055BAE1 /* OAuthResponse.swift */,
+				A171FA3721AF0A960055BAE1 /* ErrorResponse.swift */,
+				A143FA8421B058B00090D2F8 /* PagedResponse.swift */,
+				A143FA8621B05BC50090D2F8 /* Reservation.swift */,
+				A143FA8821B097880090D2F8 /* ReservationTask.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		A171FA3921AF15F70055BAE1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A171FA3A21AF16010055BAE1 /* WebToken.swift */,
+				A171FA3E21AF2AF80055BAE1 /* StringExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A1891D1721AE4B4E00BD7803 = {
 			isa = PBXGroup;
 			children = (
 				A1891D2321AE4B4E00BD7803 /* KeyprApi */,
 				A1891D2E21AE4B4E00BD7803 /* KeyprApiTests */,
 				A1891D2221AE4B4E00BD7803 /* Products */,
+				A1A5509D21AEA6B2004CE09C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +111,11 @@
 		A1891D2321AE4B4E00BD7803 /* KeyprApi */ = {
 			isa = PBXGroup;
 			children = (
+				A171FA3921AF15F70055BAE1 /* Helpers */,
+				A171FA3421AF030D0055BAE1 /* Responses */,
 				A1891D2421AE4B4E00BD7803 /* KeyprApi.h */,
 				A1891D2521AE4B4E00BD7803 /* Info.plist */,
+				A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */,
 			);
 			path = KeyprApi;
 			sourceTree = "<group>";
@@ -81,9 +124,17 @@
 			isa = PBXGroup;
 			children = (
 				A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */,
+				A171FA3C21AF19A80055BAE1 /* WebTokenTests.swift */,
 				A1891D3121AE4B4E00BD7803 /* Info.plist */,
 			);
 			path = KeyprApiTests;
+			sourceTree = "<group>";
+		};
+		A1A5509D21AEA6B2004CE09C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +199,7 @@
 				TargetAttributes = {
 					A1891D2021AE4B4E00BD7803 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					A1891D2921AE4B4E00BD7803 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A143FA8921B097880090D2F8 /* ReservationTask.swift in Sources */,
+				A171FA3B21AF16010055BAE1 /* WebToken.swift in Sources */,
+				A171FA3821AF0A960055BAE1 /* ErrorResponse.swift in Sources */,
+				A1891D3C21AE4EEF00BD7803 /* KeyprApi.swift in Sources */,
+				A171FA3621AF032B0055BAE1 /* OAuthResponse.swift in Sources */,
+				A143FA8521B058B00090D2F8 /* PagedResponse.swift in Sources */,
+				A143FA8721B05BC50090D2F8 /* Reservation.swift in Sources */,
+				A171FA3F21AF2AF80055BAE1 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A171FA3D21AF19A80055BAE1 /* WebTokenTests.swift in Sources */,
 				A1891D3021AE4B4E00BD7803 /* KeyprApiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,6 +402,7 @@
 		A1891D3621AE4B4E00BD7803 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -348,8 +410,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KeyprApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +422,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.matadesigns.KeyprApi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +431,7 @@
 		A1891D3721AE4B4E00BD7803 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -373,8 +439,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KeyprApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,6 +459,7 @@
 		A1891D3921AE4B4E00BD7803 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72NH26LUXP;
 				INFOPLIST_FILE = KeyprApiTests/Info.plist;
@@ -409,6 +478,7 @@
 		A1891D3A21AE4B4E00BD7803 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72NH26LUXP;
 				INFOPLIST_FILE = KeyprApiTests/Info.plist;
