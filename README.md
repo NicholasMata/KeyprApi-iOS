@@ -1,6 +1,6 @@
 # KeyprApi
 
-[![CI Status](http://img.shields.io/travis/MataDesigns/KeyprApi-iOS.svg?style=flat)](https://travis-ci.org/MataDesigns/EasyJSON)
+[![CI Status](https://travis-ci.com/MataDesigns/KeyprApi-iOS.svg)](https://travis-ci.org/MataDesigns/EasyJSON)
 [![Version](https://img.shields.io/cocoapods/v/KeyprApi.svg?style=flat)](http://cocoapods.org/pods/EasyJSON)
 [![License](https://img.shields.io/cocoapods/l/KeyprApi.svg?style=flat)](http://cocoapods.org/pods/EasyJSON)
 [![Platform](https://img.shields.io/cocoapods/p/KeyprApi.svg?style=flat)](http://cocoapods.org/pods/EasyJSON)
