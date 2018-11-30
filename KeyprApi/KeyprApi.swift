@@ -9,7 +9,7 @@
 import Foundation
 
 public typealias KeyprJWTGenerator = ((_ jwt: String)->Void) -> Void
-public typealias KeyprApiResponse<T> = ((T?, Error?) -> Void)?
+public typealias KeyprApiResponse<T> = (T?, Error?) -> Void
 public typealias WebTokenCompletion = KeyprApiResponse<WebToken>
 
 /// Different types of Keypr environments
@@ -116,10 +116,12 @@ open class KeyprApi {
      */
     public func start(task: KeyprAsyncTask,reservationId: String,
                              completionHandler: @escaping(_ task:ReservationTask?,_ error: Error?) -> ()) {
-        checkAndQueue {
+        checkAndQueue(block: {
             let absoluteUrl = "\(self.env.apiUrl())/v1/reservations/\(reservationId)/async_\(task.rawValue)"
-            self.makeRequest(url: absoluteUrl, method: "PUT", completionHandler: completionHandler)
-        }
+            self.makeRequest(url: absoluteUrl, method: "PUT")  { (response:DataResponse<ReservationTask>?, err) in
+                completionHandler(response?.data, err)
+            }
+        }, tupleErrorHandler: completionHandler)
     }
     
     /**
@@ -137,10 +139,12 @@ open class KeyprApi {
      */
     public func check(taskId: String,
                             completionHandler: @escaping(_ task:ReservationTask?,_ error: Error?) -> ()) {
-        checkAndQueue {
+        checkAndQueue(block: {
             let absoluteUrl = "\(self.env.apiUrl())/v1/tasks/\(taskId)"
-            self.makeRequest(url: absoluteUrl, method: "GET", completionHandler: completionHandler)
-        }
+            self.makeRequest(url: absoluteUrl, method: "GET") { (response:DataResponse<ReservationTask>?, err) in
+                completionHandler(response?.data, err)
+            }
+        }, tupleErrorHandler: completionHandler)
     }
     /**
      Performs an async task like check-in/check-out.
@@ -161,12 +165,12 @@ open class KeyprApi {
             guard let checkInTask = task, error == nil  else {
                 return completionHandler(false, nil, error)
             }
-            if checkInTask.data.attributes.failed {
+            if checkInTask.attributes.failed {
                 return completionHandler(false, checkInTask, error)
             }
-            let taskId = checkInTask.data.id
+            let taskId = checkInTask.id
             let stopAt = Date().addingTimeInterval(timeout)
-            let queue = DispatchQueue(label: "CheckInTask-\(checkInTask.data.id)", qos: .background)
+            let queue = DispatchQueue(label: "CheckInTask-\(taskId)", qos: .background)
             var checkStatusHandler: (()->())!
             checkStatusHandler = {
                 if Date() >= stopAt {
@@ -176,10 +180,10 @@ open class KeyprApi {
                     guard let task = task, error == nil  else {
                         return completionHandler(false, nil, error)
                     }
-                    if task.data.attributes.failed {
+                    if task.attributes.failed {
                         return completionHandler(false, task, error)
                     }
-                    if task.data.attributes.successful {
+                    if task.attributes.successful {
                         return completionHandler(true, task, error)
                     }
                     sleep(1)
@@ -210,10 +214,10 @@ open class KeyprApi {
      */
     public func reservations(query:String = "",
                              completionHandler: @escaping(_ reservations: PagedResponse<[Reservation]>?,_ error: Error?)-> ()) {
-        checkAndQueue {
+        checkAndQueue(block: {
             let abosoluteUrl = "\(self.env.apiUrl())/v1/reservations\(query)"
             self.makeRequest(url: abosoluteUrl, method: "GET", completionHandler: completionHandler)
-        }
+        }, tupleErrorHandler: completionHandler)
     }
     
     /**
@@ -230,12 +234,12 @@ open class KeyprApi {
      - Parameter error: A error from parsing json, network, or unsuccessful response.
      */
     public func reservation(id: String, completionHandler: @escaping(_ reservations: Reservation?,_ error: Error?)-> ()) {
-        checkAndQueue {
+        checkAndQueue(block: {
             let abosoluteUrl = "\(self.env.apiUrl())/v1/reservations/\(id)"
-            self.makeRequest(url: abosoluteUrl, method: "GET", completionHandler: { (response:ReservationDataResponse?, err) in
+            self.makeRequest(url: abosoluteUrl, method: "GET", completionHandler: { (response:DataResponse<Reservation>?, err) in
                 completionHandler(response?.data, err)
             })
-        }
+        }, tupleErrorHandler: completionHandler)
     }
     
     /**
@@ -262,7 +266,7 @@ open class KeyprApi {
      Check Authorization, gets and sets access_token and calls JWT generator if needed.
      - Note: Used mainly internally but thought might be useful to make public.
     */
-    public func checkAuthorization(jwtComplete:WebTokenCompletion = nil, accessTokenCompletion: WebTokenCompletion = nil) {
+    public func checkAuthorization(jwtComplete:(WebTokenCompletion)? = nil, accessTokenCompletion: @escaping WebTokenCompletion) {
         if !accessToken.isValid() {
             if !jwt.isValid()  {
                 queue.async {
@@ -275,33 +279,38 @@ open class KeyprApi {
                             jwtComplete?(self.jwt, nil)
                         } catch let error {
                             jwtComplete?(nil, error)
-                            self.queue.suspend()
                         }
-                        self.semaphore.signal()
                     }
-                    self.semaphore.wait()
                 }
             }
             queue.async {
                 let jwt = self.jwt.value!
                 self.getAccessToken(jwt) { (response, error) in
-                    if error != nil {
-                        self.queue.suspend()
-                    } else {
                         self.accessToken.value = response?.accessToken
                         self.accessToken.expires(in: response?.expiresIn)
-                    }
-                    accessTokenCompletion?(self.accessToken.isValid() ? self.accessToken : nil, error)
-                    self.semaphore.signal()
+                    accessTokenCompletion(self.accessToken.isValid() ? self.accessToken : nil, error)
                 }
-                self.semaphore.wait()
             }
+        } else {
+            accessTokenCompletion(self.accessToken, nil)
         }
     }
     
-    private func checkAndQueue(block: @escaping () -> Void) {
-        checkAuthorization()
-        queue.async(execute: block)
+    private func checkAndQueue(block: @escaping () -> Void, errorHandler: @escaping (_ err: Error) -> Void) {
+        checkAuthorization(jwtComplete: { (_, err) in
+            if let err = err {
+                errorHandler(err)
+            }
+        }, accessTokenCompletion:   { (_, err) in
+            if let err = err {
+                errorHandler(err)
+            }
+            self.queue.async(execute: block)
+        })
+    }
+    
+    private func checkAndQueue<T>(block: @escaping () -> Void, tupleErrorHandler: @escaping (T?,Error?) -> Void) {
+        checkAndQueue(block:block, errorHandler:{tupleErrorHandler(nil, $0)})
     }
     
     private func makeRequest<T: Decodable>(url: String, method: String, body: Data? = nil, decoder: JSONDecoder = JSONDecoder(), completionHandler: ((T?, Error?)->())? = nil) {

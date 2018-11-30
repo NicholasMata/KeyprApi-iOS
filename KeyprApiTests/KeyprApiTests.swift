@@ -45,7 +45,7 @@ class KeyprApiTests: XCTestCase {
             expectingReservation.fulfill()
         }
         wait(for: [expectingReservation], timeout: 10)
-        assert(reservation != nil, "Should onlt use this func for valid reservations")
+        assert(reservation != nil, "Should only use this func for valid reservations")
         return reservation!
     }
     
@@ -75,7 +75,7 @@ class KeyprApiTests: XCTestCase {
         keyprApi.checkAuthorization(jwtComplete: { (jwt, err) in
             error = err
             expectingJWT.fulfill()
-        })
+        }, accessTokenCompletion: {_,_ in  })
         wait(for: [expectingJWT], timeout: 10)
         XCTAssert(error != nil, error.debugDescription)
         XCTAssertFalse(!keyprApi.jwt.isExpired(), "JWT should be expired")
@@ -96,11 +96,11 @@ class KeyprApiTests: XCTestCase {
         let reservation = getReservation(id: cantCheckInReservationId)
         var checkInError: Error?
         let expectingCheckIn = expectation(description: "Waiting for Check In")
-        keyprApi.start(task:.checkIn, reservationId: reservation.id) { (checkInTask, err) in
+        keyprApi.start(task: .checkIn, reservationId: reservation.id) { (checkInTask, err) in
             checkInError = err
             expectingCheckIn.fulfill()
         }
-        wait(for: [expectingCheckIn], timeout: 10)
+        wait(for: [expectingCheckIn], timeout: 3600)
         XCTAssert(checkInError?.localizedDescription == "Check-in conditions not met", "Should already be checked in.")
     }
     

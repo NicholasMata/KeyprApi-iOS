@@ -9,21 +9,18 @@
 import Foundation
 
 public class ReservationTask: Codable {
-    public var data: TaskData
+    var id: String
+    var type: String
+    var attributes: TaskAttributes
     
-    public class TaskData: Codable {
-        var id: String
-        var type: String
-        var attributes: TaskAttributes
-        
-        public class TaskAttributes: Codable {
-            var name: String?
-            var status: String
-            var result: String?
-            var ready: Bool
-            var successful: Bool
-            var failed: Bool
-            var statusUrl: String?
-        }
+    public class TaskAttributes: Codable {
+        var name: String?
+        var status: String
+        var result: String?
+        var ready: Bool
+        var successful: Bool
+        var failed: Bool
+        var statusUrl: String?
     }
+    
 }

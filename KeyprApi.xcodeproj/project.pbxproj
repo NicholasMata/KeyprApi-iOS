@@ -19,6 +19,7 @@
 		A1891D3021AE4B4E00BD7803 /* KeyprApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */; };
 		A1891D3221AE4B4E00BD7803 /* KeyprApi.h in Headers */ = {isa = PBXBuildFile; fileRef = A1891D2421AE4B4E00BD7803 /* KeyprApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1891D3C21AE4EEF00BD7803 /* KeyprApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */; };
+		A1B63AAD21B1A89D002A5421 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B63AAC21B1A89D002A5421 /* DataResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApiTests.swift; sourceTree = "<group>"; };
 		A1891D3121AE4B4E00BD7803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApi.swift; sourceTree = "<group>"; };
+		A1B63AAC21B1A89D002A5421 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				A171FA3A21AF16010055BAE1 /* WebToken.swift */,
 				A171FA3E21AF2AF80055BAE1 /* StringExtensions.swift */,
+				A1B63AAC21B1A89D002A5421 /* DataResponse.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				A171FA3B21AF16010055BAE1 /* WebToken.swift in Sources */,
 				A171FA3821AF0A960055BAE1 /* ErrorResponse.swift in Sources */,
 				A1891D3C21AE4EEF00BD7803 /* KeyprApi.swift in Sources */,
+				A1B63AAD21B1A89D002A5421 /* DataResponse.swift in Sources */,
 				A171FA3621AF032B0055BAE1 /* OAuthResponse.swift in Sources */,
 				A143FA8521B058B00090D2F8 /* PagedResponse.swift in Sources */,
 				A143FA8721B05BC50090D2F8 /* Reservation.swift in Sources */,

@@ -93,9 +93,6 @@ public class ReservationAttributes: Codable {
     }
 }
 
-internal class ReservationDataResponse: Codable {
-    var data: Reservation
-}
 
 public class Reservation: Codable {
     var id: String
@@ -113,7 +110,7 @@ public class Reservation: Codable {
             var data: [Relationship]
         }
         
-        public class ReservationAffilateRelationship :Codable {
+        public class ReservationAffilateRelationship: Codable {
             var data: Relationship
         }
         
