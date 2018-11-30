@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
 [![Platform](https://img.shields.io/cocoapods/p/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
 
-KeyprApi is wrapper for Keypr endpoints.
+KeyprApi is wrapper for Keypr endpoints. **Unoffical**
 
 - [Features](#features)
 - [Usage](#usage)
