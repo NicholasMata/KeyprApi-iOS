@@ -43,8 +43,6 @@ github "MataDesigns/KeyprApi-iOS"
 
 ## Usage
 
-### Important !!! currently only class are supported (if you use structs this will not work)
-
 ### Intro (Federated)
 
 #### Understanding JWT
