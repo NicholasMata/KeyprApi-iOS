@@ -8,19 +8,22 @@
 
 import Foundation
 
+/// A function responsible for generating a jwt and using the callback to notify main caller.
 public typealias KeyprJWTGenerator = ((_ jwt: String)->Void) -> Void
-public typealias KeyprApiResponse<T> = (T?, Error?) -> Void
-public typealias WebTokenCompletion = KeyprApiResponse<WebToken>
+/// A callback that either runs a webtoken or error
+public typealias WebTokenCompletion = (WebToken?, Error?) -> Void
 
 /// Different types of Keypr environments
 ///
 /// - staging: Staging Keypr environment
 /// - production: Production Keypr environment
 public enum KeyprEnv {
+    /// Staging Keypr environment
     case staging
+    /// Production Keypr environment
     case production
     
-    func apiUrl() -> String {
+    internal func apiUrl() -> String {
         switch self {
         case .staging:
             return "https://api.keyprstg.com"
@@ -29,7 +32,7 @@ public enum KeyprEnv {
         }
     }
     
-    func accountUrl() -> String {
+    internal func accountUrl() -> String {
         switch self {
         case .staging:
             return "https://account.keyprstg.com"
@@ -45,13 +48,16 @@ public enum KeyprEnv {
 /// - checkIn: Check into a reservation
 /// - checkOut: Check out of a reservation
 public enum KeyprAsyncTask: String {
+    /// Check-in task
     case checkIn = "check_in"
+    /// Check-out task
     case checkOut = "check_out"
 }
 
+/// A error that can occur with calling keypr api.
 public enum ApiError: LocalizedError {
     case failed(String?)
-    
+    /// A description of the server error that occurred.
     public var errorDescription: String? {
         switch self {
         case .failed(let message):
@@ -60,18 +66,26 @@ public enum ApiError: LocalizedError {
     }
 }
 
+/// Used to execute functions on keypr api as a user, using Federated Authentication Flow.
 open class KeyprApi {
+    /// A func that is responsible for generating JWT.
     public var jwtGenerator: KeyprJWTGenerator
+    /// A JSON Web Token (JWT) since is used to get a access token.
     public var jwt = WebToken()
-    
+    /// A token used for authentication.
     public private(set) var accessToken = WebToken()
     private var semaphore = DispatchSemaphore(value: 0)
     private var urlSession: URLSession
     private var queue: DispatchQueue
     private var env: KeyprEnv
-    
     private var jsonEncoder = JSONEncoder()
     
+    /**
+     Creates a new instance for accessing KEYPR Api using Federated Authentication Flow.
+     
+     - Parameter environment: A enum value indicating what api should be used staging or production.
+     - Parameter jwtGenerator: A func that is responsible for generating JWT, locally or from server call.
+     */
     public convenience init(jwtGenerator: @escaping KeyprJWTGenerator, environment: KeyprEnv = .production) {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = TimeInterval(30)

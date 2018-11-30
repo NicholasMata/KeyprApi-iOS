@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KeyprApi  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="KeyprApi  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">KeyprApi Docs</a> (80% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">KeyprApi Reference</a>
+        <img id="carat" src="img/carat.png" />
+        KeyprApi  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ErrorObjectResponse.html">ErrorObjectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ErrorResponse.html">ErrorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/KeyprApi.html">KeyprApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/OAuthResponse.html">OAuthResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PagedResponse.html">PagedResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PagedResponse/PagingInfo.html">– PagingInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Reservation.html">Reservation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Reservation/Relationships.html">– Relationships</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Reservation/Metadata.html">– Metadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Reservation/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Reservation/Attributes.html">– Attributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ReservationTask.html">ReservationTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ReservationTask/Status.html">– Status</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ReservationTask/Attributes.html">– Attributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/WebToken.html">WebToken</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/ApiError.html">ApiError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/JWTError.html">JWTError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/KeyprAsyncTask.html">KeyprAsyncTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/KeyprEnv.html">KeyprEnv</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:8KeyprApi0A12JWTGeneratora">KeyprJWTGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:8KeyprApi18WebTokenCompletiona">WebTokenCompletion</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='keyprapi' class='heading'>KeyprApi</h1>
+
+<p><a href="https://travis-ci.org/MataDesigns/KeyprApi"><img src="https://travis-ci.com/MataDesigns/KeyprApi-iOS.svg" alt="CI Status"></a>
+<a href="http://cocoapods.org/pods/KeyprApi"><img src="https://img.shields.io/cocoapods/v/KeyprApi.svg" alt="Version"></a>
+<a href="http://cocoapods.org/pods/KeyprApi"><img src="https://img.shields.io/cocoapods/l/KeyprApi.svg" alt="License"></a>
+<a href="http://cocoapods.org/pods/KeyprApi"><img src="https://img.shields.io/cocoapods/p/KeyprApi.svg" alt="Platform"></a></p>
+
+<p>KeyprApi is wrapper for Keypr endpoints.</p>
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#usage">Usage</a>
+
+<ul>
+<li><strong>Intro Federated -</strong> <a href="#understanding-jwt">Understanding JWT</a>, <a href="#getting-started">Getting Started</a>,<a href="#checking-inout-of-reservation">Checking In/Out of Reservation</a></li>
+</ul></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 9.0+</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>Cocoapods</h3>
+
+<p>KeyprApi is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s2">"KeyprApi"</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>To install it, simple add the following line to your Cartfile</p>
+<pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"MataDesigns/KeyprApi-iOS"</span>
+</code></pre>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>Support Authentication Flows
+
+<ul>
+<li>✅ Federated Id</li>
+<li>✅ Automatic handling of expired JWT and access token.</li>
+<li>🚫 OAuth</li>
+</ul></li>
+<li>✅ Get Reservations for user</li>
+<li>✅ Check-in/out of a reservation</li>
+<li>✅ Lookup Reservation by Id</li>
+<li>🚫 Lookup Reservation by confirmation code and last name</li>
+</ul>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='important-currently-only-class-are-supported-if-you-use-structs-this-will-not-work' class='heading'>Important !!! currently only class are supported (if you use structs this will not work)</h3>
+<h3 id='intro-federated' class='heading'>Intro (Federated)</h3>
+<h4 id='understanding-jwt' class='heading'>Understanding JWT</h4>
+
+<p>JWT or JSON Web Token is a compact and self-contained way for securely transmitting information between parties as a JSON object. 
+This information can be verified and trusted because it is digitally signed. </p>
+
+<p>In the case of Keypr&rsquo;s federated flow it is used if you want to use a 3rd party system as an identity provider.</p>
+
+<p>Keypr requires JWT to use the RS256 algorithm for signing.</p>
+
+<p>JWT payload must contain at least the following:</p>
+
+<ul>
+<li><strong>iss</strong>         - this field identifies what system JWT is generated by. Public key is associated with this URI.</li>
+<li><strong>exp</strong>         - a token expiration time in NumericDate format. This is a JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.</li>
+<li><strong>given_name</strong>  - user&rsquo;s first name</li>
+<li><strong>family_name</strong> - user&rsquo;s last name</li>
+<li><strong>email</strong>       - user&rsquo;s email address</li>
+</ul>
+
+<p>Learn more about JWTs <a href="jwt.io">here</a></p>
+<h4 id='getting-started' class='heading'>Getting Started</h4>
+
+<p>JWT should be generated server side, because of this a required constructor parameter is a JWTGenerator.
+The generator will be called when jwt is empty or when it is expired so this should always result in a valid JWT.</p>
+
+<p>Keypr currently has two environments staging and production.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">KeyprApi</span>
+
+<span class="kd">func</span> <span class="nf">getJWTFromServer</span><span class="p">(</span><span class="nv">gotJWT</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span><span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nf">contactYourServerForJWT</span><span class="p">()</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+    <span class="nf">gotJWT</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">jwt</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">...</span>
+
+<span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="kt">KeyprApi</span><span class="p">(</span><span class="nv">jwtGenerator</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">getJWTFromServer</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">staging</span><span class="p">)</span>
+
+</code></pre>
+<h4 id='checking-in-out-of-reservation' class='heading'>Checking In/Out of Reservation</h4>
+<h5 id='all-in-one-solution' class='heading'>All in One Solution</h5>
+
+<p>This solution performs a keypr async task for you, with a timeout.</p>
+
+<p>i.e. Calls /async_(check_in or check_out) then calls task/(taskId from /async call) until a success, failure, or timeout happens.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="kt">KeyprApi</span><span class="p">(</span><span class="nv">jwtGenerator</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">getJWTFromServer</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">staging</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">reservationId</span> <span class="o">=</span> <span class="c1">// use api to get reservation</span>
+
+<span class="n">api</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="nv">task</span><span class="p">:</span> <span class="o">.</span><span class="n">checkIn</span><span class="p">,</span> <span class="nv">reservationId</span><span class="p">:</span> <span class="n">reservationId</span><span class="p">,</span> <span class="nv">timeout</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">successful</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">successful</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<h5 id='start-async-task-process' class='heading'>Start async task process</h5>
+
+<p><strong>Unless you know what you are doing use the <q>All in One Solution</q> ABOVE ⬆️</strong></p>
+
+<p>This will only start a check-in/check-out this <strong>will not</strong> inform you if the process has completed successful or not. You will have to check that will the check(taskId:) function.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="kt">KeyprApi</span><span class="p">(</span><span class="nv">jwtGenerator</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">getJWTFromServer</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">staging</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">reservationId</span> <span class="o">=</span> <span class="c1">// use api to get reservation.</span>
+
+<span class="n">api</span><span class="o">.</span><span class="nf">start</span><span class="p">(</span><span class="nv">task</span><span class="p">:</span> <span class="o">.</span><span class="n">checkIn</span><span class="p">,</span> <span class="nv">reservationId</span><span class="p">:</span> <span class="n">reservationId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"TaskId: </span><span class="se">\(</span><span class="n">task</span><span class="o">.</span><span class="n">id</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<h5 id='check-async-task' class='heading'>Check async task</h5>
+
+<p><strong>Unless you know what you are doing use the <q>All in One Solution</q> ABOVE ⬆️</strong></p>
+
+<p>This is used to check on an async task using taskId gotten from start(task:) function.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">taskId</span> <span class="o">=</span> <span class="c1">// Some task id.</span>
+
+<span class="n">api</span><span class="o">.</span><span class="nf">check</span><span class="p">(</span><span class="nv">taskId</span><span class="p">:</span> <span class="n">taskId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">successful</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Woohoo Checked In!!"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">failed</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Oops something went wrong..."</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s">"PENDING"</span> <span class="p">{</span>
+        <span class="c1">// check again</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='more-documentation-to-come' class='heading'>More Documentation to come &hellip;</h2>
+
+<p>(Look at tests for now)</p>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Nicholas Mata, <a href="mailto:nicholas@matadesigns.net">nicholas@matadesigns.net</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>KeyprApi is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://github.com/MataDesigns/KeyprApi-iOS" target="_blank" rel="external">Nicholas Mata</a>. All rights reserved. (Last updated: 2018-11-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

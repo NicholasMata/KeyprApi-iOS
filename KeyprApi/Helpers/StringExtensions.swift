@@ -9,13 +9,13 @@
 import Foundation
 
 extension String {
-    func addBas64Padding() -> String {
+    internal func addBas64Padding() -> String {
         return self.padding(toLength: ((self.count+3)/4)*4,
                           withPad: "=",
                           startingAt: 0)
     }
     
-    func toDate() -> Date? {
+    internal func toDate() -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = ("yyyy-MM-dd'T'HH:mm:ssZ")
         return formatter.date(from: self)

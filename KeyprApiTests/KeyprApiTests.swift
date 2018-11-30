@@ -9,7 +9,7 @@
 import XCTest
 @testable import KeyprApi
 
-let validJWT = ""
+let validJWT = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS1zdGcuc2ljLmNvbS9vYXV0aDIvdG9rZW4iLCJnaXZlbl9uYW1lIjoibmljaG9sYXMiLCJmYW1pbHlfbmFtZSI6Im1hdGEiLCJlbWFpbCI6Im5pY2hvbGFzQG1hdGFkZXNpZ25zLm5ldCIsImlhdCI6MTU0MzQzNDMzNywiZXhwIjoxOTQzNDcwMzM3fQ.D6_t7VFfSoF_xs88WMaNUacyD1dWJ262vQAojKkGmOm5mOINHinpzmHG0_OqHV651IbkoA72O7AmhLpYMiv3YeBvJ2xh6-4hyOVUu9sfakQLXpVLewxMHdVUaHthHV95FosBVjPkwyzX4OtRggkqMqgyH-UgkPNxzHcAluTRAJg"
 let expiredJWT = ""
 
 let cantCheckInReservationId = ""
@@ -114,7 +114,7 @@ class KeyprApiTests: XCTestCase {
         }
         wait(for: [expectingReservation], timeout: 10)
         let reservation = reservations?.first(where: { (r) -> Bool in
-            return  r.attributes.state == "reserved" && !usedReservationIds.contains(r.id)})
+            return  r.attributes.state == .reserved && !usedReservationIds.contains(r.id)})
         assert(reservation != nil, "Add a reservation using mockpms")
         var result = false
         let expectingCheckIn = expectation(description: "Waiting for Check In")

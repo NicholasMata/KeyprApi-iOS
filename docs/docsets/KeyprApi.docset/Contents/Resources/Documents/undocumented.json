@@ -1,0 +1,250 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Helpers/WebToken.swift",
+      "line": 11,
+      "symbol": "JWTError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Helpers/WebToken.swift",
+      "line": 15,
+      "symbol": "JWTError.invalidStructure",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Helpers/WebToken.swift",
+      "line": 57,
+      "symbol": "WebToken",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Helpers/WebToken.swift",
+      "line": 63,
+      "symbol": "WebToken.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/KeyprApi.swift",
+      "line": 59,
+      "symbol": "ApiError.failed(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 25,
+      "symbol": "Reservation.Relationships",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 26,
+      "symbol": "Reservation.Relationships.users",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 27,
+      "symbol": "Reservation.Relationships.affiliate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 29,
+      "symbol": "Reservation.Relationships.UserRelationships",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 30,
+      "symbol": "Reservation.Relationships.UserRelationships.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 33,
+      "symbol": "Reservation.Relationships.AffilateRelationship",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 34,
+      "symbol": "Reservation.Relationships.AffilateRelationship.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 37,
+      "symbol": "Reservation.Relationships.Relationship",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 38,
+      "symbol": "Reservation.Relationships.Relationship.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 39,
+      "symbol": "Reservation.Relationships.Relationship.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 49,
+      "symbol": "Reservation.Metadata.isDueIn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 50,
+      "symbol": "Reservation.Metadata.isDueOut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 51,
+      "symbol": "Reservation.Metadata.isAssigned",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 52,
+      "symbol": "Reservation.Metadata.canPreCheckIn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 93,
+      "symbol": "Reservation.Attributes.company",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 94,
+      "symbol": "Reservation.Attributes.loyaltyProgram",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 95,
+      "symbol": "Reservation.Attributes.loyaltyNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 96,
+      "symbol": "Reservation.Attributes.blockCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 97,
+      "symbol": "Reservation.Attributes.externalState",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 98,
+      "symbol": "Reservation.Attributes.checkInOAuthAppId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 99,
+      "symbol": "Reservation.Attributes.checkInSourceType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 100,
+      "symbol": "Reservation.Attributes.checkOutOAuthAppId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 101,
+      "symbol": "Reservation.Attributes.checkOutSourceType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 102,
+      "symbol": "Reservation.Attributes.digitalKeyDisabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 103,
+      "symbol": "Reservation.Attributes.metaFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/Reservation.swift",
+      "line": 161,
+      "symbol": "Reservation.Attributes.MetaFields",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/ReservationTask.swift",
+      "line": 20,
+      "symbol": "ReservationTask.Status",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/ReservationTask.swift",
+      "line": 21,
+      "symbol": "ReservationTask.Status.pending",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/ReservationTask.swift",
+      "line": 22,
+      "symbol": "ReservationTask.Status.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi/KeyprApi/Responses/ReservationTask.swift",
+      "line": 23,
+      "symbol": "ReservationTask.Status.failure",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/nicholasmata/Developer/MataDesigns/KeyprApi"
+}
