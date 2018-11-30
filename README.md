@@ -1,15 +1,15 @@
 # KeyprApi
 
-[![CI Status](https://travis-ci.com/MataDesigns/KeyprApi-iOS.svg)](https://travis-ci.org/MataDesigns/EasyJSON)
-[![Version](https://img.shields.io/cocoapods/v/KeyprApi.svg?style=flat)](http://cocoapods.org/pods/EasyJSON)
-[![License](https://img.shields.io/cocoapods/l/KeyprApi.svg?style=flat)](http://cocoapods.org/pods/EasyJSON)
-[![Platform](https://img.shields.io/cocoapods/p/KeyprApi.svg?style=flat)](http://cocoapods.org/pods/EasyJSON)
+[![CI Status](https://travis-ci.com/MataDesigns/KeyprApi-iOS.svg)](https://travis-ci.org/MataDesigns/KeyprApi)
+[![Version](https://img.shields.io/cocoapods/v/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
+[![License](https://img.shields.io/cocoapods/l/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
+[![Platform](https://img.shields.io/cocoapods/p/KeyprApi.svg)](http://cocoapods.org/pods/KeyprApi)
 
 KeyprApi is wrapper for Keypr endpoints.
 
 - [Features](#features)
 - [Usage](#usage)
-    - **Intro Federated -** [Understanding JWT](#understanding-jwt), [Getting Started](#getting-started)
+    - **Intro Federated -** [Understanding JWT](#understanding-jwt), [Getting Started](#getting-started),[Checking In/Out of Reservation](#checking-inout-of-reservation)
 
 ## Requirements
 - iOS 9.0+
@@ -76,7 +76,7 @@ Keypr currently has two environments staging and production.
 import KeyprApi
 
 func getJWTFromServer(gotJWT: (String)-> Void)) {
-  someAsyncNetworkRequest() { response in
+  contactYourServerForJWT() { response in
     gotJWT(response.jwt)
   }
 }
@@ -86,6 +86,24 @@ func getJWTFromServer(gotJWT: (String)-> Void)) {
 let api = KeyprApi(jwtGenerator: self.getJWTFromServer, environment: .staging)
 
 ```
+
+#### Checking In/Out of Reservation
+
+##### All in One Solution
+
+This solution performs a keypr async task for you, with a timeout.
+
+i.e. Calls /async_(check_in or check_out) then calls task/(taskId from /async call) until a success, failure, or timeout happens.
+
+```swift
+let api = KeyprApi(jwtGenerator: self.getJWTFromServer, environment: .staging)
+let reservationId = // use api to get reservation
+
+api.perform(task:.checkIn, reservationId: reservationId, timeout: 10) { (successful, task, error) in
+    print(successful)
+}
+```
+
 
 ## More Documentation to come ... 
 
