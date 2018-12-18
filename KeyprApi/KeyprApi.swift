@@ -9,24 +9,24 @@
 import Foundation
 
 /// A function responsible for generating a jwt and using the callback to notify main caller.
-public typealias KeyprJWTGenerator = ((_ jwt: String)->Void) -> Void
+public typealias KeyprJWTGenerator = (@escaping (_ jwt: String)->Void) -> Void
 /// A callback that either runs a webtoken or error
 public typealias WebTokenCompletion = (WebToken?, Error?) -> Void
 
 /// Different types of Keypr environments
 ///
-/// - staging: Staging Keypr environment
+/// - custom: Custom Keypr environment
 /// - production: Production Keypr environment
 public enum KeyprEnv {
-    /// Staging Keypr environment
-    case staging
+    /// Custom Keypr environment
+    case custom(apiUrl: String, accountUrl: String)
     /// Production Keypr environment
     case production
     
     internal func apiUrl() -> String {
         switch self {
-        case .staging:
-            return "https://api.keyprstg.com"
+        case .custom(let url, _):
+            return url
         case .production:
             return "https://api.keypr.com"
         }
@@ -34,8 +34,8 @@ public enum KeyprEnv {
     
     internal func accountUrl() -> String {
         switch self {
-        case .staging:
-            return "https://account.keyprstg.com"
+        case .custom(_, let url):
+            return url
         case .production:
             return "https://account.keypr.com"
         }
@@ -77,13 +77,13 @@ open class KeyprApi {
     private var semaphore = DispatchSemaphore(value: 0)
     private var urlSession: URLSession
     private var queue: DispatchQueue
-    private var env: KeyprEnv
+    public var env: KeyprEnv
     private var jsonEncoder = JSONEncoder()
     
     /**
      Creates a new instance for accessing KEYPR Api using Federated Authentication Flow.
      
-     - Parameter environment: A enum value indicating what api should be used staging or production.
+     - Parameter environment: A enum value indicating what api should be used custom or production.
      - Parameter jwtGenerator: A func that is responsible for generating JWT, locally or from server call.
      */
     public convenience init(jwtGenerator: @escaping KeyprJWTGenerator, environment: KeyprEnv = .production) {
@@ -97,7 +97,7 @@ open class KeyprApi {
      Creates a new instance for accessing KEYPR Api using Federated Authentication Flow.
      
      - Parameter sessionConfig: Session configuration that will be used for all api call. Content-Type automatically set to json.
-     - Parameter environment: A enum value indicating what api should be used staging or production.
+     - Parameter environment: A enum value indicating what api should be used custom or production.
      - Parameter jwtGenerator: A func that is responsible for generating JWT, locally or from server call.
      */
     public init(jwtGenerator: @escaping KeyprJWTGenerator, sessionConfig: URLSessionConfiguration, environment: KeyprEnv = .production) {
@@ -112,6 +112,11 @@ open class KeyprApi {
             sessionConfig.httpAdditionalHeaders?[i.key] = i.value
         }
         self.urlSession = URLSession(configuration: sessionConfig)
+    }
+    
+    public func clearTokens() {
+        self.accessToken = WebToken()
+        self.jwt = WebToken()
     }
     
     /**
