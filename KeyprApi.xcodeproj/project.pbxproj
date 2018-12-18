@@ -19,6 +19,7 @@
 		A1891D3021AE4B4E00BD7803 /* KeyprApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */; };
 		A1891D3221AE4B4E00BD7803 /* KeyprApi.h in Headers */ = {isa = PBXBuildFile; fileRef = A1891D2421AE4B4E00BD7803 /* KeyprApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1891D3C21AE4EEF00BD7803 /* KeyprApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */; };
+		A190126A21C97EF900441AAD /* KeyprApi.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A190126921C97EF900441AAD /* KeyprApi.podspec */; };
 		A1B63AAD21B1A89D002A5421 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B63AAC21B1A89D002A5421 /* DataResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		A1891D2F21AE4B4E00BD7803 /* KeyprApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApiTests.swift; sourceTree = "<group>"; };
 		A1891D3121AE4B4E00BD7803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApi.swift; sourceTree = "<group>"; };
+		A190126921C97EF900441AAD /* KeyprApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyprApi.podspec; sourceTree = "<group>"; };
 		A1B63AAC21B1A89D002A5421 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 		A1891D1721AE4B4E00BD7803 = {
 			isa = PBXGroup;
 			children = (
+				A190126921C97EF900441AAD /* KeyprApi.podspec */,
 				A1891D2321AE4B4E00BD7803 /* KeyprApi */,
 				A1891D2E21AE4B4E00BD7803 /* KeyprApiTests */,
 				A1891D2221AE4B4E00BD7803 /* Products */,
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A190126A21C97EF900441AAD /* KeyprApi.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

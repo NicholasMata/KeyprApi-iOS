@@ -299,7 +299,9 @@ open class KeyprApi {
                         } catch let error {
                             jwtComplete?(nil, error)
                         }
+                        self.semaphore.signal()
                     }
+                    self.semaphore.wait()
                 }
             }
             queue.async {
