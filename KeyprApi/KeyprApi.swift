@@ -66,6 +66,10 @@ public enum ApiError: LocalizedError {
     }
 }
 
+public enum KeyprTaskError: LocalizedError {
+    case timedOut
+}
+
 /// Used to execute functions on keypr api as a user, using Federated Authentication Flow.
 open class KeyprApi {
     /// A func that is responsible for generating JWT.
@@ -114,6 +118,10 @@ open class KeyprApi {
         self.urlSession = URLSession(configuration: sessionConfig)
     }
     
+    /**
+     Clears both access token and jwt
+     - Note: Equalivant to a log out in normal auth.
+    */
     public func clearTokens() {
         self.accessToken = WebToken()
         self.jwt = WebToken()
@@ -171,6 +179,7 @@ open class KeyprApi {
      - Parameter task: A task to perform
      - Parameter reservationId: The id of the reservation
      - Parameter timeout: The numbers of seconds to wait for before timing out.
+     - Parameter interval: The numbers of seconds between task status checks.
      - Parameter completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
      
         This completion handler takes the following parameters:
@@ -178,7 +187,7 @@ open class KeyprApi {
      - Parameter task: The task response if there was one.
      - parameter error: A error from parsing json, network, timeout, or unsuccessful response.
     */
-    public func perform(task: KeyprAsyncTask, reservationId: String, timeout: TimeInterval,
+    public func perform(task: KeyprAsyncTask, reservationId: String, timeout: TimeInterval = 60, interval: UInt32 = 1,
                         completionHandler: @escaping(_ successful:Bool,_ task:ReservationTask?,_ error:Error?)->()) {
         let taskHandler: (ReservationTask?,Error?) -> () = { (task, error) in
             guard let checkInTask = task, error == nil  else {
@@ -189,23 +198,23 @@ open class KeyprApi {
             }
             let taskId = checkInTask.id
             let stopAt = Date().addingTimeInterval(timeout)
-            let queue = DispatchQueue(label: "CheckInTask-\(taskId)", qos: .background)
+            let queue = DispatchQueue(label: "KeyprTask-\(taskId)", qos: .background)
             var checkStatusHandler: (()->())!
             checkStatusHandler = {
                 if Date() >= stopAt {
-                    return completionHandler(false, nil, nil)
+                    return completionHandler(false, nil, KeyprTaskError.timedOut)
                 }
-                self.check(taskId: taskId) { (task, error) in
-                    guard let task = task, error == nil  else {
-                        return completionHandler(false, nil, error)
+                self.check(taskId: taskId) { (t, err) in
+                    guard let task = t, err == nil  else {
+                        return completionHandler(false, t, err)
                     }
                     if task.attributes.failed {
-                        return completionHandler(false, task, error)
+                        return completionHandler(false, task, err)
                     }
                     if task.attributes.successful {
-                        return completionHandler(true, task, error)
+                        return completionHandler(true, task, err)
                     }
-                    sleep(1)
+                    sleep(interval)
                     queue.async {
                         checkStatusHandler()
                     }
