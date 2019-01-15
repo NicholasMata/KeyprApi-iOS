@@ -76,7 +76,7 @@ public class Reservation: Codable {
         /// ID used by external system (usually Property Management System)
         public var externalId: String
         /// Reservation confirmation number
-        public var confirmationId: String
+        public var confirmationId: String?
         /// The first (given) name of the guest
         public var firstName: String?
         /// The last (family) name / surname of the guest
@@ -95,7 +95,7 @@ public class Reservation: Codable {
         public var loyaltyProgram:String?
         public var loyaltyNumber:String?
         public var blockCode:String?
-        public var externalState:String
+        public var externalState:String?
         /// The OAuth application responsible for checking the guest in.
         public var checkInOAuthAppId:String?
         /// The source responsible for checking the guest in. (mobile,pms) seen so far.
@@ -127,14 +127,14 @@ public class Reservation: Codable {
         }()
         /// The date the last external modification of the reservation occurred.
         lazy public var externalModifiedDate: Date? = {
-            return _externalModifiedDate.toDate()
+            return _externalModifiedDate?.toDate()
         }()
         
         private var _modifiedAt: String
         private var _createdAt: String
         private var _checkInDate: String
         private var _checkOutDate: String
-        private var _externalModifiedDate:String
+        private var _externalModifiedDate:String?
         
         enum CodingKeys: String, CodingKey {
             case state
@@ -169,9 +169,9 @@ public class Reservation: Codable {
         /// if electronic check in/out is enabled for reservation.
         public class MetaFields: Codable {
             /// Whether electronic checkout is enabled for a reservation.
-            public var eCheckOutEnabled: Bool
+            public var eCheckOutEnabled: Bool?
             /// Whether electronic checkin is enabled for a reservation.
-            public var eCheckInEnabled: Bool
+            public var eCheckInEnabled: Bool?
             
             enum CodingKeys: String, CodingKey {
                 case eCheckOutEnabled = "echeckoutEnabled"

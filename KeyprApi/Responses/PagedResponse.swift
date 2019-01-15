@@ -14,10 +14,12 @@ public class PagedResponse<T: Codable>: Codable {
     public var pagingInfo: PagingInfo
     /// The data that this page holds normally a list of some json object.
     public var data: T
+    public var included: [AdditionalInfo]?
     
     enum CodingKeys: String, CodingKey {
         case pagingInfo = "links"
         case data
+        case included
     }
     
     /// Information needed to navigate pages
@@ -28,5 +30,17 @@ public class PagedResponse<T: Codable>: Codable {
         public var next: String?
         /// a url to the previous page.
         public var prev: String?
+    }
+    
+    public class AdditionalInfo : Codable {
+        public var id: String
+        public var type: String
+        public var attributes: Attributes
+        
+        public class Attributes: Codable {
+            public var name: String?
+            public var locationStatus: String?
+            public var externalId: String?
+        }
     }
 }
