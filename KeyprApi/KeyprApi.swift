@@ -261,12 +261,25 @@ open class KeyprApi {
      - Parameter reservation: A reservation.
      - Parameter error: A error from parsing json, network, or unsuccessful response.
      */
-    public func reservation(id: String, completionHandler: @escaping(_ reservations: Reservation?,_ error: Error?)-> ()) {
+    public func reservation(id: String, query: String = "", completionHandler: @escaping(_ reservations: Reservation?,_ error: Error?)-> ()) {
         checkAndQueue(block: {
-            let abosoluteUrl = "\(self.env.apiUrl())/v1/reservations/\(id)"
+            let abosoluteUrl = "\(self.env.apiUrl())/v1/reservations/\(id)\(query)"
             self.makeRequest(url: abosoluteUrl, method: "GET", completionHandler: { (response:DataResponse<Reservation>?, err) in
                 completionHandler(response?.data, err)
             })
+        }, tupleErrorHandler: completionHandler)
+    }
+    
+    /**
+     Get a reservation's folio information
+    
+     - Parameters:
+       - reservation: The reservation you want the folio of.
+       - completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
+    */
+    public func folio(for reservation: Reservation, completionHandler: @escaping(_ reservations: ReservationFolio?,_ error: Error?)-> ()) {
+        checkAndQueue(block: {
+            self.makeRequest(url: reservation.meta.folioDetailsUrl, method: "GET", completionHandler: completionHandler)
         }, tupleErrorHandler: completionHandler)
     }
     

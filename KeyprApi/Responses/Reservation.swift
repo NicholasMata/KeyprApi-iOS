@@ -42,6 +42,7 @@ public class Reservation: Codable {
     
     /// Metadata regarding a reservation
     public class Metadata: Codable {
+        public var folioDetailsUrl: String
         /// Indicates if remote check-in operation can be attempted. When this field is set to false, controls allowing to submit a check-in request should be hidden or disabled.
         public var canCheckIn: Bool
         /// Indicates if remote check-out operation can be attempted. When this field is set to false, controls allowing to submit a check-out request should be hidden or disabled.
