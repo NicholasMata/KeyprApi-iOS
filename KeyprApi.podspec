@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KeyprApi'
-  s.version          = '0.8'
+  s.version          = '0.9'
   s.summary          = 'A wrapper for KEYPR Api'
 
 # This description is used to generate tags and improve search results.

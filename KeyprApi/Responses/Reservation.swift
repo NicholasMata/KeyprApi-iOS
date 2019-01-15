@@ -25,7 +25,11 @@ public class Reservation: Codable {
     public class Relationships: Codable {
         public var users: UserRelationships
         public var affiliate: AffilateRelationship
+        public var locations: LocationRelationship?
         
+        public class LocationRelationship: Codable {
+            public var data: [Relationship]
+        }
         public class UserRelationships: Codable {
             public var data: [Relationship]
         }
