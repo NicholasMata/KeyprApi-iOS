@@ -7,8 +7,9 @@
 #
 
 Pod::Spec.new do |s|
+  s.swift_version    = '4.2'
   s.name             = 'KeyprApi'
-  s.version          = '0.9'
+  s.version          = '0.9.1'
   s.summary          = 'A wrapper for KEYPR Api'
 
 # This description is used to generate tags and improve search results.
@@ -21,10 +22,10 @@ Pod::Spec.new do |s|
 A wrapper for KEYPR Api for things like looking up reservations, check-in, and check-out.
                        DESC
 
-  s.homepage         = 'https://github.com/MataDesigns/KeyprApi-iOS'
+  s.homepage         = 'https://github.com/NicholasMata/KeyprApi-iOS'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Nicholas Mata' => 'nicholas@matadesigns.net' }
-  s.source           = { :git => 'https://github.com/MataDesigns/KeyprApi-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/NicholasMata/KeyprApi-iOS', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
