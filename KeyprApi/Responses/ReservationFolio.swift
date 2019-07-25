@@ -23,7 +23,7 @@ public class ReservationFolio: Codable {
         }
         
         public class AmountInfo: Codable {
-            public var amount: Int
+            public var amount: Float
             public var currencyCode: String
         }
     }
