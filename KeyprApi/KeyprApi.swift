@@ -121,7 +121,7 @@ open class KeyprApi {
     /**
      Clears both access token and jwt
      - Note: Equalivant to a log out in normal auth.
-    */
+     */
     public func clearTokens() {
         self.accessToken = WebToken()
         self.jwt = WebToken()
@@ -137,12 +137,12 @@ open class KeyprApi {
      - Parameter reservationId: The id of the reservation you want to attempt to check-in to.
      - Parameter completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
      
-        This completion handler takes the following parameters:
+     This completion handler takes the following parameters:
      - Parameter task: A reservation task from successful response.
      - Parameter error: A error from parsing json, network, or unsuccessful response.
      */
     public func start(task: KeyprAsyncTask,reservationId: String,
-                             completionHandler: @escaping(_ task:ReservationTask?,_ error: Error?) -> ()) {
+                      completionHandler: @escaping(_ task:ReservationTask?,_ error: Error?) -> ()) {
         checkAndQueue(block: {
             let absoluteUrl = "\(self.env.apiUrl())/v1/reservations/\(reservationId)/async_\(task.rawValue)"
             self.makeRequest(url: absoluteUrl, method: "PUT")  { (response:DataResponse<ReservationTask>?, err) in
@@ -160,12 +160,12 @@ open class KeyprApi {
      - Parameter taskId: The id for a check-in or check-out task
      - Parameter completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
      
-        This completion handler takes the following parameters:
+     This completion handler takes the following parameters:
      - Parameter task: A reservation task from successful response.
      - parameter error: A error from parsing json, network, or unsuccessful response.
      */
     public func check(taskId: String,
-                            completionHandler: @escaping(_ task:ReservationTask?,_ error: Error?) -> ()) {
+                      completionHandler: @escaping(_ task:ReservationTask?,_ error: Error?) -> ()) {
         checkAndQueue(block: {
             let absoluteUrl = "\(self.env.apiUrl())/v1/tasks/\(taskId)"
             self.makeRequest(url: absoluteUrl, method: "GET") { (response:DataResponse<ReservationTask>?, err) in
@@ -182,11 +182,11 @@ open class KeyprApi {
      - Parameter interval: The numbers of seconds between task status checks.
      - Parameter completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
      
-        This completion handler takes the following parameters:
+     This completion handler takes the following parameters:
      - Parameter successful: Whether or not the check in was successful.
      - Parameter task: The task response if there was one.
      - parameter error: A error from parsing json, network, timeout, or unsuccessful response.
-    */
+     */
     public func perform(task: KeyprAsyncTask, reservationId: String, timeout: TimeInterval = 60, interval: UInt32 = 1,
                         completionHandler: @escaping(_ successful:Bool,_ task:ReservationTask?,_ error:Error?)->()) {
         let taskHandler: (ReservationTask?,Error?) -> () = { (task, error) in
@@ -236,15 +236,17 @@ open class KeyprApi {
      - Parameter query: A query to be appended at the end of url i.e. ?state=reserved, /active, /archived
      - Parameter completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
      
-        This completion handler takes the following parameters:
+     This completion handler takes the following parameters:
      - Parameter reservations: A paged array of reservations.
      - Parameter error: A error from parsing json, network, or unsuccessful response.
      */
     public func reservations(query:String = "",
                              completionHandler: @escaping(_ reservations: PagedResponse<[Reservation]>?,_ error: Error?)-> ()) {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.reservation)
         checkAndQueue(block: {
             let abosoluteUrl = "\(self.env.apiUrl())/v1/reservations\(query)"
-            self.makeRequest(url: abosoluteUrl, method: "GET", completionHandler: completionHandler)
+            self.makeRequest(url: abosoluteUrl, method: "GET", decoder: decoder, completionHandler: completionHandler)
         }, tupleErrorHandler: completionHandler)
     }
     
@@ -262,9 +264,11 @@ open class KeyprApi {
      - Parameter error: A error from parsing json, network, or unsuccessful response.
      */
     public func reservation(id: String, query: String = "", completionHandler: @escaping(_ reservations: Reservation?,_ error: Error?)-> ()) {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.reservation)
         checkAndQueue(block: {
             let abosoluteUrl = "\(self.env.apiUrl())/v1/reservations/\(id)\(query)"
-            self.makeRequest(url: abosoluteUrl, method: "GET", completionHandler: { (response:DataResponse<Reservation>?, err) in
+            self.makeRequest(url: abosoluteUrl, method: "GET", decoder: decoder, completionHandler: { (response:DataResponse<Reservation>?, err) in
                 completionHandler(response?.data, err)
             })
         }, tupleErrorHandler: completionHandler)
@@ -272,14 +276,16 @@ open class KeyprApi {
     
     /**
      Get a reservation's folio information
-    
+     
      - Parameters:
-       - reservation: The reservation you want the folio of.
-       - completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
-    */
+     - reservation: The reservation you want the folio of.
+     - completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
+     */
     public func folio(for reservation: Reservation, completionHandler: @escaping(_ reservations: ReservationFolio?,_ error: Error?)-> ()) {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.reservationFolio)
         checkAndQueue(block: {
-            self.makeRequest(url: reservation.meta.folioDetailsUrl, method: "GET", completionHandler: completionHandler)
+            self.makeRequest(url: reservation.meta.folioDetailsUrl, method: "GET",decoder:decoder, completionHandler: completionHandler)
         }, tupleErrorHandler: completionHandler)
     }
     
@@ -292,7 +298,7 @@ open class KeyprApi {
      - Parameter jwt: A JWT (JSON Web Token)
      - Parameter completionHandler: The completion handler to call when the request is complete. This handler is executed on the delegate queue.
      
-        This completion handler takes the following parameters:
+     This completion handler takes the following parameters:
      - Parameter token: A OAuth Response contains access, id, and refresh tokens.
      - Parameter error: A error from parsing json, network, or unsuccessful response.
      */
@@ -306,7 +312,7 @@ open class KeyprApi {
     /**
      Check Authorization, gets and sets access_token and calls JWT generator if needed.
      - Note: Used mainly internally but thought might be useful to make public.
-    */
+     */
     public func checkAuthorization(jwtComplete:(WebTokenCompletion)? = nil, accessTokenCompletion: @escaping WebTokenCompletion) {
         if !accessToken.isValid() {
             if !jwt.isValid()  {
@@ -329,8 +335,8 @@ open class KeyprApi {
             queue.async {
                 let jwt = self.jwt.value!
                 self.getAccessToken(jwt) { (response, error) in
-                        self.accessToken.value = response?.accessToken
-                        self.accessToken.expires(in: response?.expiresIn)
+                    self.accessToken.value = response?.accessToken
+                    self.accessToken.expires(in: response?.expiresIn)
                     accessTokenCompletion(self.accessToken.isValid() ? self.accessToken : nil, error)
                 }
             }
@@ -387,6 +393,6 @@ open class KeyprApi {
             } catch let error {
                 completionHandler?(nil, error)
             }
-        }.resume()
+            }.resume()
     }
 }

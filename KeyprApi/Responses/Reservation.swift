@@ -114,31 +114,15 @@ public class Reservation: Codable {
         public var metaFields: MetaFields
         
         /// The date the reservation was created
-        lazy public var createdAt: Date? = {
-            return _createdAt.toDate()
-        }()
+        public var createdAt: Date?
         /// The date the last modification of the reservation occurred.
-        lazy public var modifiedAt: Date? = {
-            return _modifiedAt.toDate()
-        }()
+        public var modifiedAt: Date?
         /// The date the guest checked in.
-        lazy public var checkInDate: Date? = {
-            return _checkInDate.toDate()
-        }()
+        public var checkInDate: Date?
         /// The date the guest checked out.
-        lazy public var checkOutDate: Date? = {
-            return _checkOutDate.toDate()
-        }()
+        public var checkOutDate: Date?
         /// The date the last external modification of the reservation occurred.
-        lazy public var externalModifiedDate: Date? = {
-            return _externalModifiedDate?.toDate()
-        }()
-        
-        private var _modifiedAt: String
-        private var _createdAt: String
-        private var _checkInDate: String
-        private var _checkOutDate: String
-        private var _externalModifiedDate:String?
+        public var externalModifiedDate: Date?
         
         enum CodingKeys: String, CodingKey {
             case state
@@ -162,11 +146,11 @@ public class Reservation: Codable {
             case checkOutSourceType
             case digitalKeyDisabled
             case metaFields
-            case _createdAt = "createdAt"
-            case _modifiedAt = "modifiedAt"
-            case _checkInDate = "checkinDate"
-            case _checkOutDate = "checkoutDate"
-            case _externalModifiedDate = "externalModifiedDate"
+            case createdAt
+            case modifiedAt
+            case checkInDate = "checkinDate"
+            case checkOutDate = "checkoutDate"
+            case externalModifiedDate
         }
         
         /// Metadata on the attributes of a reservation to see

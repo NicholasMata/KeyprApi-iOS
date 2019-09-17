@@ -22,6 +22,7 @@
 		A1891D3C21AE4EEF00BD7803 /* KeyprApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */; };
 		A190126A21C97EF900441AAD /* KeyprApi.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A190126921C97EF900441AAD /* KeyprApi.podspec */; };
 		A1B63AAD21B1A89D002A5421 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B63AAC21B1A89D002A5421 /* DataResponse.swift */; };
+		A1F1AEAF23315C910059F6A4 /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1AEAE23315C910059F6A4 /* DateFormats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A1891D3B21AE4EEF00BD7803 /* KeyprApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyprApi.swift; sourceTree = "<group>"; };
 		A190126921C97EF900441AAD /* KeyprApi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyprApi.podspec; sourceTree = "<group>"; };
 		A1B63AAC21B1A89D002A5421 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		A1F1AEAE23315C910059F6A4 /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				A171FA3A21AF16010055BAE1 /* WebToken.swift */,
 				A171FA3E21AF2AF80055BAE1 /* StringExtensions.swift */,
 				A1B63AAC21B1A89D002A5421 /* DataResponse.swift */,
+				A1F1AEAE23315C910059F6A4 /* DateFormats.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				A1B63AAD21B1A89D002A5421 /* DataResponse.swift in Sources */,
 				A171FA3621AF032B0055BAE1 /* OAuthResponse.swift in Sources */,
 				A143FA8521B058B00090D2F8 /* PagedResponse.swift in Sources */,
+				A1F1AEAF23315C910059F6A4 /* DateFormats.swift in Sources */,
 				A143FA8721B05BC50090D2F8 /* Reservation.swift in Sources */,
 				A171FA3F21AF2AF80055BAE1 /* StringExtensions.swift in Sources */,
 				A163E7CC21EDE3FD006C173C /* ReservationFolio.swift in Sources */,
